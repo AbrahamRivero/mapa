@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano version="1.19-pr16">
+
+    
+  <!-- Spot Style - Enlace -->
+
+
+  <style name="IconEnlace"
+         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint1.png"
+         visible="false"
+         frame="0"
+         lastframe="12"
+         framewidth="50"
+         frameheight="50"
+         stopspotsequence="false"
+         crop="0|0|50|50"
+         edge="center"
+         onloaded="startspotanimation(0.1);"
+         onhover="onhoverIconEnlace"
+         onout="onoutIconEnlace"
+
+
+         />
+  <action name="onhoverIconEnlace">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconEnlace">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - Default Point Spot Style 1 -->
+
+
+  <style name="IconDefaultPointSpotStyle1"
+         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint2.png"
+         visible="false"
+         frame="0"
+         lastframe="12"
+         framewidth="50"
+         frameheight="50"
+         stopspotsequence="false"
+         crop="0|0|50|50"
+         edge="center"
+         onloaded="startspotanimation(0.1);"
+         onhover="onhoverIconDefaultPointSpotStyle1"
+         onout="onoutIconDefaultPointSpotStyle1"
+
+
+         />
+  <action name="onhoverIconDefaultPointSpotStyle1">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconDefaultPointSpotStyle1">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Volver -->
+<!-- id : button -->
+<!-- ********** -->
+
+  <layer name="button"
+         keep="true"
+         url="%FIRSTXML%/graphics/button/retorno.png"
+         align="bottom"
+         x="10"
+         y="10"
+         zorder="1"
+         visible="false"
+         onclick="buttonOnClick"
+         height="40"
+         width="40"
+         />
+
+
+
+  <action name="buttonOnClick">
+          mainloadscene(pano10);lookat(get(panoview.h), get(panoview.v), get(panoview.fov));
+hidebutton();
+
+
+  </action>
+
+  <events name="buttonevents"
+    onTourStart="showbutton();"
+    hidetourcontrols="hidebutton();"
+    showtourcontrols="showbutton();"
+    keep="true" />
+  <action name="hidebutton">set(layer[button].visible, false);</action>
+  <action name="showbutton">if(tour_displaycontrols,set(layer[button].visible, true);,hidebutton(););</action>
+
+
+<!-- ********** -->
+<!-- Call actions on tour events -->
+<!-- id : callActionsOnTourEvents -->
+<!-- ********** -->
+    <events name="callActionsOnTourEventsevents" keep="true"
+            ontourstart="callActionsOnTourEventsontourstart()"
+
+     />
+
+
+
+    <action name="callActionsOnTourEventsontourstart">
+hidebutton();
+
+
+
+    </action>
+
+
+
+
+
+
+</krpano>
